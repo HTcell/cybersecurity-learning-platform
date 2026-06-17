@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验室 - 网络安全学习平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🔐 网安学习平台</div>
+            <ul class="nav-links">
+                <li><a href="/">首页</a></li>
+                <li><a href="/courses">课程</a></li>
+                <li><a href="/lab">实验室</a></li>
+                <li><a href="/dashboard">我的学习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>🧪 实验室</h1>
+            <p>动手实践，学以致用</p>
+        </div>
+    </section>
+
+    <!-- 实验列表 -->
+    <section class="lab-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active">全部</button>
+                <button class="filter-btn">简单</button>
+                <button class="filter-btn">中等</button>
+                <button class="filter-btn">困难</button>
+            </div>
+
+            <div class="experiments-grid">
+                {% for experiment in experiments %}
+                    <div class="experiment-card">
+                        <div class="experiment-header">
+                            <h3>{{ experiment.title }}</h3>
+                            <span class="difficulty-badge difficulty-{{ experiment.difficulty }}">{{ experiment.difficulty }}</span>
+                        </div>
+                        <p class="experiment-description">{{ experiment.description }}</p>
+                        <div class="experiment-meta">
+                            <span class="category-badge">{{ experiment.category }}</span>
+                        </div>
+                        <button class="btn btn-small" onclick="startExperiment({{ experiment.id }})">开始实验</button>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- 空状态提示 -->
+            {% if not experiments %}
+                <div class="empty-state">
+                    <p>暂无实验内容</p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- 推荐外部资源 -->
+    <section class="external-resources">
+        <div class="container">
+            <h2>推荐实验平台</h2>
+            <div class="resources-grid">
+                <a href="https://www.hackthebox.com/" target="_blank" class="resource-card">
+                    <h3>HackTheBox</h3>
+                    <p>在线靶场，提供真实的渗透测试环境</p>
+                </a>
+                <a href="https://tryhackme.com/" target="_blank" class="resource-card">
+                    <h3>TryHackMe</h3>
+                    <p>交互式网络安全学习平台</p>
+                </a>
+                <a href="https://owasp.org/www-project-webgoat/" target="_blank" class="resource-card">
+                    <h3>OWASP WebGoat</h3>
+                    <p>学习Web应用安全的工具</p>
+                </a>
+                <a href="https://picoctf.org/" target="_blank" class="resource-card">
+                    <h3>PicoCTF</h3>
+                    <p>初学者友好的CTF竞赛平台</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 网络安全学习平台 | Made with ❤️ by HTcell</p>
+        </div>
+    </footer>
+
+    <script>
+        function startExperiment(experimentId) {
+            alert('实验 #' + experimentId + ' 即将开始！');
+            // 这里可以跳转到实验详情页面
+            // window.location.href = '/experiment/' + experimentId;
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

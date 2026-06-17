@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的学习 - 网络安全学习平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🔐 网安学习平台</div>
+            <ul class="nav-links">
+                <li><a href="/">首页</a></li>
+                <li><a href="/courses">课程</a></li>
+                <li><a href="/lab">实验室</a></li>
+                <li><a href="/dashboard">我的学习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>📊 我的学习</h1>
+            <p>跟踪你的学习进度，持之以恒</p>
+        </div>
+    </section>
+
+    <!-- 学习仪表板 -->
+    <section class="dashboard">
+        <div class="container">
+            <!-- 总体统计 -->
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <h3>学习进度</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 17%"></div>
+                    </div>
+                    <p><strong>2 / 12</strong> 课程已完成</p>
+                </div>
+                <div class="stat-card">
+                    <h3>当前周数</h3>
+                    <p style="font-size: 2em; margin: 20px 0;">第 1 周</p>
+                    <p>计算机网络基础</p>
+                </div>
+                <div class="stat-card">
+                    <h3>学习天数</h3>
+                    <p style="font-size: 2em; margin: 20px 0;">5 天</p>
+                    <p>坚持学习中 🔥</p>
+                </div>
+                <div class="stat-card">
+                    <h3>总学习时长</h3>
+                    <p style="font-size: 2em; margin: 20px 0;">15 小时</p>
+                    <p>再加油！</p>
+                </div>
+            </div>
+
+            <!-- 学习计划 -->
+            <div class="learning-plan">
+                <h2>本周学习计划</h2>
+                <div class="plan-items">
+                    <div class="plan-item completed">
+                        <input type="checkbox" checked>
+                        <span>网络基础概念 - 已完成</span>
+                    </div>
+                    <div class="plan-item completed">
+                        <input type="checkbox" checked>
+                        <span>OSI七层模型 - 已完成</span>
+                    </div>
+                    <div class="plan-item">
+                        <input type="checkbox">
+                        <span>HTTP/HTTPS协议 - 进行中</span>
+                    </div>
+                    <div class="plan-item">
+                        <input type="checkbox">
+                        <span>完成第1周实验 - 未开始</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 学习建议 -->
+            <div class="learning-tips">
+                <h2>💡 学习小贴士</h2>
+                <div class="tips-list">
+                    <div class="tip">
+                        <span class="tip-number">1</span>
+                        <div class="tip-content">
+                            <h4>每日坚持</h4>
+                            <p>每天固定时间学习，养成良好习惯。建议在上午或晚上安排固定时段。</p>
+                        </div>
+                    </div>
+                    <div class="tip">
+                        <span class="tip-number">2</span>
+                        <div class="tip-content">
+                            <h4>理论+实践</h4>
+                            <p>不要只看视频，一定要动手做实验。实践是最好的学习方式。</p>
+                        </div>
+                    </div>
+                    <div class="tip">
+                        <span class="tip-number">3</span>
+                        <div class="tip-content">
+                            <h4>记录笔记</h4>
+                            <p>用自己的话总结知识点，写笔记有助于加深理解。</p>
+                        </div>
+                    </div>
+                    <div class="tip">
+                        <span class="tip-number">4</span>
+                        <div class="tip-content">
+                            <h4>定期复习</h4>
+                            <p>周末花1小时复习本周内容，强化记忆。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 网络安全学习平台 | Made with ❤️ by HTcell</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

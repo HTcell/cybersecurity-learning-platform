@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程 - 网络安全学习平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🔐 网安学习平台</div>
+            <ul class="nav-links">
+                <li><a href="/">首页</a></li>
+                <li><a href="/courses">课程</a></li>
+                <li><a href="/lab">实验室</a></li>
+                <li><a href="/dashboard">我的学习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>📚 课程列表</h1>
+            <p>循序渐进的网络安全课程，从基础到进阶</p>
+        </div>
+    </section>
+
+    <!-- 课程列表 -->
+    <section class="courses-section">
+        <div class="container">
+            <!-- 按周分组 -->
+            <div class="week-group">
+                <h2>第1周：计算机网络基础</h2>
+                <div class="courses-grid">
+                    {% for course in courses %}
+                        {% if course.week == 1 %}
+                            <div class="course-card">
+                                <div class="course-header">
+                                    <h3>{{ course.title }}</h3>
+                                    <span class="week-badge">第{{ course.week }}周</span>
+                                </div>
+                                <p class="course-description">{{ course.description }}</p>
+                                <div class="course-meta">
+                                    <span class="category-badge">{{ course.category }}</span>
+                                </div>
+                                <a href="/courses/{{ course.id }}" class="btn btn-small">开始学习</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="week-group">
+                <h2>第2周：密码学基础</h2>
+                <div class="courses-grid">
+                    {% for course in courses %}
+                        {% if course.week == 2 %}
+                            <div class="course-card">
+                                <div class="course-header">
+                                    <h3>{{ course.title }}</h3>
+                                    <span class="week-badge">第{{ course.week }}周</span>
+                                </div>
+                                <p class="course-description">{{ course.description }}</p>
+                                <div class="course-meta">
+                                    <span class="category-badge">{{ course.category }}</span>
+                                </div>
+                                <a href="/courses/{{ course.id }}" class="btn btn-small">开始学习</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="week-group">
+                <h2>第3周：Web安全漏洞</h2>
+                <div class="courses-grid">
+                    {% for course in courses %}
+                        {% if course.week == 3 %}
+                            <div class="course-card">
+                                <div class="course-header">
+                                    <h3>{{ course.title }}</h3>
+                                    <span class="week-badge">第{{ course.week }}周</span>
+                                </div>
+                                <p class="course-description">{{ course.description }}</p>
+                                <div class="course-meta">
+                                    <span class="category-badge">{{ course.category }}</span>
+                                </div>
+                                <a href="/courses/{{ course.id }}" class="btn btn-small">开始学习</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="week-group">
+                <h2>第4周：实战项目</h2>
+                <div class="courses-grid">
+                    {% for course in courses %}
+                        {% if course.week == 4 %}
+                            <div class="course-card">
+                                <div class="course-header">
+                                    <h3>{{ course.title }}</h3>
+                                    <span class="week-badge">第{{ course.week }}周</span>
+                                </div>
+                                <p class="course-description">{{ course.description }}</p>
+                                <div class="course-meta">
+                                    <span class="category-badge">{{ course.category }}</span>
+                                </div>
+                                <a href="/courses/{{ course.id }}" class="btn btn-small">开始学习</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 网络安全学习平台 | Made with ❤️ by HTcell</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
